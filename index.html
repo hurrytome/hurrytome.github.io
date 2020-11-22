@@ -12,6 +12,15 @@
        <a-entity geometry="primitive: box" material="color: #34eba4"
               animation__color="property: material.color; dir: alternate; dur: 1000;
                                 easing: easeInSine; loop: true; to: #eb34bd">
+         
+             <a-cylinder color="#F55" radius="0.1"
+                animation="property: color; dir: alternate; dur: 1000;
+                           easing: easeInSine; loop: true; to: #5F5"
+                animation__scale="property: scale; dir: alternate; dur: 200;
+                           easing: easeInSine; loop: true; to: 1.2 1 1.2"
+                animation__yoyo="property: position; dir: alternate; dur: 1000;
+                                 easing: easeInSine; loop: true; to: 0 2 0">
+    </a-cylinder>
       </a-marker>
       <a-entity camera></a-entity>
     </a-scene>
