@@ -5,6 +5,19 @@
     <script src="https://unpkg.com/aframe-animation-component@^4.1.2/dist/aframe-animation-component.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+	  
+	  <script>
+		  AFRAME.registerComponent('cursor-listener', {
+  init: function () {
+    var COLORS = ['red', 'green', 'blue'];
+    this.el.addEventListener('click', function (evt) {
+      var randomIndex = Math.floor(Math.random() * COLORS.length);
+      this.setAttribute('material', 'color', COLORS[randomIndex]);
+      console.log('I was clicked at: ', evt.detail.intersection.point);
+    });
+  }
+});
+	  </script>
     
   </head>
   <body style="margin : 0px; overflow: hidden;">
@@ -14,8 +27,8 @@
               animation__color="property: material.color; dir: alternate; dur: 1000;
                                 easing: easeInSine; loop: true; to: #eb34bd">
          
-        <a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
-			<a-sphere position="2 0 0" color="mediumseagreen"    event-set__touchstart="material.color: red; scale: 2 2 2"></a-sphere>
+        <a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000" cursor="fuse: true; fuseTimeout: 500">
+			<a-sphere position="2 0 0" color="mediumseagreen" ></a-sphere>
 		</a-entity>
 	</a-entity>
       </a-marker>
